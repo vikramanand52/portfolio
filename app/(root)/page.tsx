@@ -115,7 +115,7 @@ export default function IndexPage() {
             </AnimatedText> */}
             <AnimatedText delay={0.6}>
               <Link
-                href={"/Resume-Vikram.pdf"}
+                href={"/resume-vikram_anand.pdf"}
                 target="_blank"
                 download
                 className={cn(buttonVariants({ size: "lg" }))}
