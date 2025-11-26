@@ -44,31 +44,30 @@ export function ContactForm() {
     },
   });
 
-  // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
 
-      form.reset();
+async function onSubmit(values: z.infer<typeof formSchema>) {
+  try {
+    const subject = encodeURIComponent("New Contact Form Submission");
+    const body = encodeURIComponent(
+      `Name: ${values.name}\nEmail: ${values.email}\nMessage: ${values.message}\nSocial: ${values.social}`
+    );
 
-      if (response.status === 200) {
-        storeModal.onOpen({
-          title: "Thankyou!",
-          description:
-            "Your message has been received! I appreciate your contact and will get back to you shortly.",
-          icon: Icons.successAnimated,
-        });
-      }
-    } catch (err) {
-      console.log("Err!", err);
-    }
+    const mailtoLink = `mailto:vikramanand9431@gmail.com?subject=${subject}&body=${body}`;
+
+    window.location.href = mailtoLink;
+
+    form.reset();
+
+    storeModal.onOpen({
+      title: "Thank you!",
+      description:
+        "Your email client has been opened with your message. Please send it to complete.",
+      icon: Icons.successAnimated,
+    });
+  } catch (err) {
+    console.log("Err!", err);
   }
+}
 
   return (
     <Form {...form}>
