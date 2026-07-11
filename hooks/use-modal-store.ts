@@ -4,10 +4,7 @@ interface ModalDataProps {
   title: string;
   description: string;
   icon: any;
-  // link?: {
-  //     label: string;
-  //     link: string;
-  // }
+  
 }
 
 interface ModalStoreProps {

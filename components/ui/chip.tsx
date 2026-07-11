@@ -1,10 +1,18 @@
+import { cn } from "@/lib/utils";
+import { getTagColor } from "@/lib/tag-colors";
+
 interface ChipProps {
   content: string;
 }
 
 export default function Chip({ content }: ChipProps) {
   return (
-    <div className="center relative inline-block select-none whitespace-nowrap rounded-md py-2 px-3 align-baseline font-sans text-xs font-bold leading-none text-primary border border-border bg-background">
+    <div
+      className={cn(
+        "center relative inline-block select-none whitespace-nowrap rounded-md border py-1.5 px-2.5 align-baseline font-mono text-xs font-medium leading-none",
+        getTagColor(content)
+      )}
+    >
       {content}
     </div>
   );

@@ -6,6 +6,7 @@ import React from "react";
 
 import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
+import Chip from "@/components/ui/chip";
 import { ExperienceInterface } from "@/config/experience";
 
 // Helper function to extract year from date
@@ -30,10 +31,10 @@ interface ExperienceCardProps {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   return (
-    <div className="group relative overflow-hidden rounded-lg border bg-background p-4 sm:p-6 transition-all duration-300">
+    <div className="group relative overflow-hidden rounded-2xl border border-border bg-background p-4 transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-xl hover:shadow-primary/5 sm:p-6 premium-card-border">
       <div className="flex items-start gap-3 sm:gap-4">
         {experience.logo && (
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border-2 border-border overflow-hidden bg-white flex-shrink-0">
             <Image
               src={experience.logo}
               alt={experience.company}
@@ -46,7 +47,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
         <div className="flex-1 min-w-0">
           <div className="flex flex-col gap-1 sm:gap-2">
             <div className="flex items-start sm:items-center gap-2">
-              <h3 className="text-base sm:text-lg font-bold text-foreground line-clamp-2 sm:line-clamp-1">
+              <h3 className="text-base sm:text-lg font-bold text-foreground line-clamp-2 sm:line-clamp-1 transition-colors group-hover:text-primary">
                 {experience.position}
               </h3>
               {experience.companyUrl && (
@@ -66,7 +67,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
               <span>{experience.location}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+              <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-2 py-1 font-mono text-xs font-medium text-primary">
                 {getDurationText(experience.startDate, experience.endDate)}
               </span>
             </div>
@@ -74,17 +75,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
           <p className="mt-2 sm:mt-3 text-sm text-muted-foreground line-clamp-2">
             {experience.description[0]}
           </p>
-          <div className="mt-3 sm:mt-4 flex flex-wrap gap-1">
+          <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5">
             {experience.skills.slice(0, 2).map((skill, index) => (
-              <span
-                key={index}
-                className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground"
-              >
-                {skill}
-              </span>
+              <Chip key={index} content={skill} />
             ))}
             {experience.skills.length > 2 && (
-              <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground">
+              <span className="inline-flex items-center px-2.5 py-1.5 rounded-md text-xs font-mono font-medium text-muted-foreground">
                 +{experience.skills.length - 2} more
               </span>
             )}
@@ -95,12 +91,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
         <Button
           variant="outline"
           size="sm"
-          className="rounded-lg w-full sm:w-auto"
+          className="rounded-lg w-full sm:w-auto transition-colors group-hover:border-primary group-hover:bg-primary/5"
           asChild
         >
           <Link href={`/experience/${experience.id}`}>
             View Details
-            <Icons.chevronRight className="ml-2 h-4 w-4" />
+            <Icons.chevronRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </Button>
       </div>

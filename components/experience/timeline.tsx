@@ -45,7 +45,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
           delay={0.1 * (index + 1)}
           direction="up"
         >
-          <div className="w-full p-4 sm:p-6 bg-background border border-border rounded-lg transition-all duration-300">
+          <div className="w-full p-4 sm:p-6 bg-background border border-border rounded-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div className="flex items-start gap-4 flex-1 min-w-0">
                 {experience.logo && (
@@ -64,7 +64,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                     <h3 className="text-lg sm:text-xl font-bold text-foreground">
                       {experience.position}
                     </h3>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-primary/10 text-primary border border-primary/20 w-fit">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-mono font-medium bg-primary/10 text-primary border border-primary/20 w-fit">
                       {getDurationText(
                         experience.startDate,
                         experience.endDate

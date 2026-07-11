@@ -133,7 +133,10 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" size="lg">
+          <Icons.contact className="mr-2 h-4 w-4" />
+          Send message
+        </Button>
       </form>
     </Form>
   );

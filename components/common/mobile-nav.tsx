@@ -1,8 +1,7 @@
-import { Norican } from "next/font/google";
 import Link from "next/link";
 import * as React from "react";
 
-import { siteConfig } from "@/config/site";
+import { Wordmark } from "@/components/common/wordmark";
 import { useLockBody } from "@/hooks/use-lock-body";
 import { cn } from "@/lib/utils";
 
@@ -10,13 +9,6 @@ interface MobileNavProps {
   items: any[];
   children?: React.ReactNode;
 }
-
-const norican = Norican({
-  weight: ["400"],
-  style: ["normal"],
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export function MobileNav({ items, children }: MobileNavProps) {
   useLockBody();
@@ -29,9 +21,7 @@ export function MobileNav({ items, children }: MobileNavProps) {
     >
       <div className="relative z-20 grid gap-6 rounded-md bg-popover p-4 text-popover-foreground shadow-md">
         <Link href="/" className="flex items-center space-x-2">
-          <span className={cn(norican.className, "text-2xl")}>
-            {siteConfig.authorName}
-          </span>
+          <Wordmark className="text-xl" />
         </Link>
         <nav className="grid grid-flow-row auto-rows-max text-sm">
           {items.map((item, index) => (

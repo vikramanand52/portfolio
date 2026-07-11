@@ -1,6 +1,5 @@
 import "./globals.css";
-import { Inter as FontSans } from "next/font/google";
-import localFont from "next/font/local";
+import { Plus_Jakarta_Sans as FontSans, Outfit as FontHeading, JetBrains_Mono as FontMono } from "next/font/google";
 
 import { Analytics } from "@/components/common/analytics";
 import { ThemeProvider } from "@/components/common/theme-provider";
@@ -14,10 +13,16 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-// Font files can be colocated inside of `pages`
-const fontHeading = localFont({
-  src: "../assets/fonts/CalSans-SemiBold.woff2",
+const fontHeading = FontHeading({
+  subsets: ["latin"],
   variable: "--font-heading",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const fontMono = FontMono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
 });
 
 interface RootLayoutProps {
@@ -106,6 +111,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
+          fontMono.variable,
           fontHeading.variable
         )}
       >

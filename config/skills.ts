@@ -16,11 +16,11 @@ export const skillsUnsorted: skillsInterface[] = [
     icon: Icons.nextjs,
   },
   {
-    name: "React",
+    name: "React.js",
     description:
       "Craft interactive user interfaces using components, state, props, and virtual DOM.",
     rating: 5,
-    icon: Icons.react,
+    icon: Icons.reactjs,
   },
   {
     name: "Node.js",
@@ -75,7 +75,7 @@ export const skillsUnsorted: skillsInterface[] = [
     name: "Angular",
     description:
       "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
-    rating: 2,
+    rating: 4,
     icon: Icons.angular,
   },
   {

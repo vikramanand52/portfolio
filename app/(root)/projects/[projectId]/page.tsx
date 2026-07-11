@@ -97,17 +97,11 @@ export default function Project({ params }: ProjectPageProps) {
       />
 
       <div className="mb-7 ">
-        <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
-          Tech Stack
-        </h2>
         <ChipContainer textArr={project.techStack} />
       </div>
 
-      <div className="mb-7 ">
-        <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
-          Description
-        </h2>
-        {/* {<project.descriptionComponent />} */}
+      <div className="mb-7">
+        <h3 className="text-lg font-bold text-foreground mb-3">Project Overview</h3>
         <ProjectDescription
           paragraphs={project.descriptionDetails.paragraphs}
           bullets={project.descriptionDetails.bullets}

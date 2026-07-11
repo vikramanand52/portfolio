@@ -1,6 +1,6 @@
 export type ValidSkills =
   | "Next.js"
-  | "React"
+  | "React.js"
   | "GraphQL"
   | "Nest.js"
   | "express.js"
@@ -61,7 +61,13 @@ export type ValidSkills =
   | "SQL"
   | "NoSQL"
   | "Neo4J"
-  | "Framer Motion";
+  | "Framer Motion"
+  | "React Query"
+  | "Axios"
+  | "React Testing Library"
+  | "Jira"
+  | "Vite";
+
 
 export type ValidCategory =
   | "Full Stack"

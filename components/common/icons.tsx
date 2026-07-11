@@ -124,7 +124,7 @@ export const Icons = {
   netlify: SiNetlify,
   nextjs: SiNextdotjs,
   nodejs: SiNodedotjs,
-  react: SiReact,
+  reactjs: SiReact,
   redux: SiRedux,
   socketio: SiSocketdotio,
   tailwindcss: SiTailwindcss,

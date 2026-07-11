@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   description: pagesConfig.projects.metadata.description,
 };
 
-const renderContent = () => {
-  const projectArr = Projects.filter((val) => val.type === "Personal");
+const renderContent = (type: "Personal" | "Professional") => {
+  const projectArr = Projects.filter((val) => val.type === type);
 
   return (
     <div className="mx-auto my-4 grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 static">
@@ -28,7 +28,12 @@ export default function ProjectsPage() {
     {
       value: "personal",
       label: "Personal",
-      content: renderContent(),
+      content: renderContent("Personal"),
+    },
+    {
+      value: "professional",
+      label: "Professional",
+      content: renderContent("Professional"),
     },
   ];
 
