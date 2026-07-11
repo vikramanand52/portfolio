@@ -16,13 +16,11 @@ export default function ContactPage() {
       title={pagesConfig.contact.title}
       description={pagesConfig.contact.description}
     >
-      <div className="flex flex-col lg:flex-row">
-        <div className="flex-1">
-          <ContactForm />
-        </div>
-        <div className="flex-1 flex justify-center ">
-          {/* <GithubRedirectCard /> */}
-        </div>
+      <div className="max-w-xl mx-auto py-16 px-8 sm:px-12 relative overflow-hidden bg-muted/30 rounded-3xl border border-border/40 my-8 shadow-sm">
+        {/* Ambient mesh backdrop */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] bg-primary/5 rounded-full blur-[90px] pointer-events-none -z-20 animate-pulse-slow" />
+        
+        <ContactForm />
       </div>
     </PageContainer>
   );
